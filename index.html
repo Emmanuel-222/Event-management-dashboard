@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Events</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <nav>
+        <header class="logo">
+          <h1>Full Logo</h1>
+        </header>
+        <ul>
+          <li>
+            <a href="#">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="text">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-calendar icon"></i>
+              <span class="text">Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-user-voice icon"></i>
+              <span class="text">Speakers</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-file icon"></i>
+              <span class="text">Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-bell icon"></i>
+              <span class="notification">Notifications <span>3</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-message-rounded icon"></i>
+              <span class="text">Messages</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-cog icon"></i>
+              <span class="text">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-chevrons-left icon"></i>
+              <span class="text">Collaspe</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-toggle-left icon"></i>
+              <span class="text">Dark mode</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-user-circle icon"></i>
+              <span class="text">
+                <p class="name">Rudra Devi</p>
+                <p class="email">rudra.devi@gmail.com</p>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <h1>Welcome! here's your summary</h1>
+      <div class="events-summary">
+        <div class="total-events box">
+          <h1>Total Events<i class="bx bx-info-circle"></i></h1>
+          <p>
+            100,000<i class="bx bx-up-arrow-alt icon"></i><span>+5.0%</span>
+          </p>
+        </div>
+        <div class="active-speakers box">
+          <h1>Active Speakers<i class="bx bx-info-circle"></i></h1>
+          <p>25<i class="bx bx-up-arrow-alt icon"></i><span>+5.0%</span></p>
+        </div>
+        <div class="total-registration box">
+          <h1>Total Registration<i class="bx bx-info-circle"></i></h1>
+          <p>300<i class="bx bx-up-arrow-alt icon"></i><span>+5.0%</span></p>
+        </div>
+        <div class="total-revenue box">
+          <h1>Total Revenue<i class="bx bx-info-circle"></i></h1>
+          <p>
+            $500,000<i class="bx bx-up-arrow-alt icon"></i><span>+5.0%</span>
+          </p>
+        </div>
+      </div>
+      <section class="event-registration">
+        <h1>Event Registrations per month</h1>
+        <div class="event-reg-wrapper">
+          <canvas id="myBarChart"></canvas>
+          <div class="carousel-container">
+            <div class="carousel-slide active">
+              <img src="assets/image.png" alt="Slide 1" />
+              <div class="carousel-caption">
+                <h2>Latest News & Updates</h2>
+                <p>This is the description for Slide 1.</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/image2.png" alt="Slide 2" />
+              <div class="carousel-caption">
+                <h2>New Updates</h2>
+                <p>This is the description for Slide 2.</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/image3.png" alt="Slide 3" />
+              <div class="carousel-caption">
+                <h2>More Info</h2>
+                <p>This is the description for Slide 3.</p>
+              </div>
+            </div>
+
+            <!-- Left and right navigation arrows -->
+            <button class="carousel-prev">&#10094;</button>
+            <button class="carousel-next">&#10095;</button>
+
+            <!-- Dot indicators -->
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="events-history">
+        <h1>Events History</h1>
+        <header class="event-header">
+          <ul>
+            <li>
+              <i class="bx bx-search"></i>
+              <input id="filter" type="text" placeholder="Search..." />
+            </li>
+            <li>
+              <p>Date</p>
+              <i class="bx bx-chevron-down"></i>
+            </li>
+            <li>
+              <p>Status</p>
+              <i class="bx bx-chevron-down"></i>
+            </li>
+            <li>
+              <p>Name</p>
+              <i class="bx bx-chevron-down"></i>
+            </li>
+            <li>
+              <p>Display 100 result</p>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <p>Sort:</p>
+            </li>
+            <li>
+              <p>Most Recent</p>
+              <i class="bx bx-chevron-down"></i>
+            </li>
+            <li>
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </li>
+            <li>
+              <i class="bx bx-download"></i>
+              <p>Export</p>
+            </li>
+          </ul>
+        </header>
+        <!-- Table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Event Name</th>
+              <th>Date</th>
+              <th>Speaker</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Table rows will be dynamically generated here -->
+          </tbody>
+        </table>
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="pagination">
+            <button class="prev bx bx-chevron-left" id="prev-page"></button>
+            <li><a href="" class="page-link active">1</a></li>
+            <li><a href="" class="page-link">2</a></li>
+            <li><a href="" class="page-link">3</a></li>
+            <li>
+            <button class="next bx bx-chevron-right" id="next-page"></button>
+          </div>
+
+          <div class="rows-per-page">
+            <span>Show:</span>
+            <select  id="rows-per-page">
+              <option value="5">5 rows</option>
+              <option value="10">10 rows</option>
+            </select>
+          </div>
+        </div>
+          <!-- <ul class="pagination">
+            <li>
+              <a href="#" class="prev" id="prev-page"><i ></i></a>
+            </li>
+            <li><a href="#" class="page active">1</a></li>
+            <li><a href="#" class="page">2</a></li>
+            <li><a href="#" class="page">3</a></li>
+            <li>
+              <a href="#" class="next" id="next-page"><i class=""></i></a>
+            </li>
+          </ul> -->
+
+          <!-- <div >
+            
+            <select id="rows-per-page">
+              <option value="5">5</option>
+              <option value="10">10</option>
+            </select> -->
+
+            <!-- <select>
+              <option value="10">10 rows</option>
+              <option value="20">20 rows</option>
+              <option value="30">30 rows</option>
+            </select> -->
+          <!-- </div> -->
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
