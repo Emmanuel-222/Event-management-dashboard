@@ -3,6 +3,9 @@ const prevButton = document.querySelector('.carousel-prev');
 const nextButton = document.querySelector('.carousel-next');
 const dots = document.querySelectorAll('.dot');
 
+
+const tableBody = document.getElementById('table-body');
+
 let currentSlide = 0;
 const ctx = document.getElementById('myBarChart');
 const myBarChart = new Chart(ctx, {
@@ -115,34 +118,41 @@ let rowsPerPage = 5;
 const totalPages = Math.ceil(data.length / rowsPerPage);
 let currentPage = 1;
 // Fuunction that gets the proper data on the screen
-function getPaginatedData(page) {
+function getPaginatedData(page, dataToRender) {
+  dataToRender = dataToRender || data;
   const startIndex = (page - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
-  return data.slice(startIndex, endIndex);
+  return dataToRender.slice(startIndex, endIndex);
 }
+
+let filteredList = [];
 
 document.getElementById('filter').addEventListener('input', (e) => {
   const filter = e.target.value.toLowerCase();
 
   // Filter the data array based on both 'name' and 'speaker'
-  const filteredData = data.filter(item => 
-    item.name.toLowerCase().includes(filter) || 
-    item.speaker.toLowerCase().includes(filter)
-  );
+  filteredList = data.filter(item => {
+    return item.name.toLowerCase().includes(filter) || item.speaker.toLowerCase().includes(filter);
+  });
 
   // Optionally reset to page 1 after filtering
   currentPage = 1;
 
   // Pass the filtered data to renderTable function to update the UI
-  renderTable(currentPage, filteredData);
+  renderTable(currentPage, filteredList);
+  
+  // You can log filteredList inside the event listener after filtering
+  console.log(filteredList);  // Log the filtered list
 });
 
 
 function renderTable(page, dataToRender) {
   const paginatedData = getPaginatedData(page, dataToRender);
-  const tableBody = document.getElementById('table-body');  // Assumes table body has id="table-body"
   tableBody.innerHTML = '';  // Clear previous rows
-  
+  if (paginatedData.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="4">No matching records found</td></tr>`;
+    return;
+  }
   // Add the rows for the current page
   paginatedData.forEach(item => {
     let statusClass = '';  // Initialize a variable to store the class based on status
@@ -173,10 +183,13 @@ function renderTable(page, dataToRender) {
       </tr>
     `;
   });
+  console.log(dataToRender)
+  
 }
 
 // Initially render the first page
 renderTable(currentPage);
+
 
 // If you have specific page number links
 document.getElementById('next-page').addEventListener('click', () => {
@@ -214,4 +227,38 @@ document.getElementById('rows-per-page').addEventListener('change', (e) => {
   rowsPerPage = Number(e.target.value);
   currentPage = 1;  // Reset to the first page after changing rows per page
   renderTable(currentPage);
+});
+
+// Get the modal
+const modal = document.getElementById("eventModal");
+const closeModal = document.querySelector(".close");
+const closeBtn = document.querySelector(".close-btn")
+
+// Add click listener to sidebar events
+document.querySelectorAll(".event").forEach(event => {
+  event.addEventListener('click', (e) => {
+    const eventName = e.target.dataset.event;
+    document.getElementById("modal-event-name").innerText = eventName;
+    // Here you can set other event details, e.g., date, description, speakers
+
+    // Display the modal
+    modal.style.display = "block";
+  });
+});
+
+// Close modal when 'x' is clicked
+closeModal.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+
+// Close modal when the close button is clicked
+closeBtn.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
 });

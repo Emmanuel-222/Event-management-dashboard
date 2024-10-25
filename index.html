@@ -24,7 +24,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="event" data-event="Event Name">
               <i class="bx bx-calendar icon"></i>
               <span class="text">Events</span>
             </a>
@@ -83,6 +83,33 @@
         </ul>
       </nav>
     </aside>
+    <!-- Modal Structure -->
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <div class="detail">
+          <span class="close">&times;</span>
+          <p id="modal-event-name">Event Name</p>
+          <p id="modal-event-date">Event Date</p>
+          <p id="modal-event-description">Event Description</p>
+        </div>
+
+        <div class="speakers">
+          <div class="profile-img">
+            <img src="/assets/profile-img.png" alt="Profile Image" />
+          </div>
+          <p id="modal-speaker-details">3 Guest Speakers.</p>
+          <p id="modal-attendees">300 Attendees</p>
+        </div>
+        <div class="call-to-action">
+          <button class="close-btn">Close</button>
+          <div>
+            <button class="delete-btn">Delete</button>
+            <button class="mark-completed-btn">Mark as Completed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <main class="main-content">
       <h1>Welcome! here's your summary</h1>
       <div class="events-summary">
@@ -211,42 +238,17 @@
             <li><a href="" class="page-link">2</a></li>
             <li><a href="" class="page-link">3</a></li>
             <li>
-            <button class="next bx bx-chevron-right" id="next-page"></button>
+              <button class="next bx bx-chevron-right" id="next-page"></button>
+            </li>
           </div>
 
           <div class="rows-per-page">
             <span>Show:</span>
-            <select  id="rows-per-page">
+            <select id="rows-per-page">
               <option value="5">5 rows</option>
               <option value="10">10 rows</option>
             </select>
           </div>
-        </div>
-          <!-- <ul class="pagination">
-            <li>
-              <a href="#" class="prev" id="prev-page"><i ></i></a>
-            </li>
-            <li><a href="#" class="page active">1</a></li>
-            <li><a href="#" class="page">2</a></li>
-            <li><a href="#" class="page">3</a></li>
-            <li>
-              <a href="#" class="next" id="next-page"><i class=""></i></a>
-            </li>
-          </ul> -->
-
-          <!-- <div >
-            
-            <select id="rows-per-page">
-              <option value="5">5</option>
-              <option value="10">10</option>
-            </select> -->
-
-            <!-- <select>
-              <option value="10">10 rows</option>
-              <option value="20">20 rows</option>
-              <option value="30">30 rows</option>
-            </select> -->
-          <!-- </div> -->
         </div>
       </section>
     </main>
