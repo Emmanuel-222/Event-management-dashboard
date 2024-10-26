@@ -262,3 +262,10 @@ window.addEventListener('click', (e) => {
     modal.style.display = "none";
   }
 });
+
+// Collaspe
+const CollaspeSidebar = document.getElementById("collaspe");
+
+CollaspeSidebar.addEventListener("click", () => {
+  document.querySelector(".sidebar").classList.toggle("collaspe")
+})
